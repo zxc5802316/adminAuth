@@ -27,14 +27,23 @@ if(!function_exists('code62')){
 			}
 			$show .= $s;
 			$x = floor($x/62);
+			dump($x);
 		}
 		return $show;
 	}
 }
 
 if (!function_exists('shorturl')){
+	/**生成短地址
+	 * @param $url
+	 * @return string
+	 * @throws \think\db\exception\DataNotFoundException
+	 * @throws \think\db\exception\ModelNotFoundException
+	 * @throws \think\exception\DbException
+	 */
 	function shorturl($url){
 		$old_url = $url;
+		//crc32 把地址转换成 整数
 		$url = crc32($url);
 		$result = sprintf("%u",$url);
 		if($result){

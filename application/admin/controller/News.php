@@ -6,7 +6,6 @@ namespace app\admin\controller;
 class News extends Common
 {
 	public function index(){
-
 		$id = input('id');
 		if (! $id){
 			$this->error('参数错误');
@@ -19,5 +18,6 @@ class News extends Common
 		}
 		dump(shorturl($this->request->url(true)));
 		halt($info);
+
 	}
 }
